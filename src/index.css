@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-piano-black: #111111;
+  --color-piano-white: #fafafa;
+  --color-piano-accent: #ff3333;
+  --color-bg-gradient-start: #2c2c36;
+  --color-bg-gradient-end: #121214;
+
+  --animate-press: press 0.05s ease-out;
+  --animate-glow: glow 2s ease-in-out infinite;
+
+  @keyframes press {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(2px);
+    }
+  }
+
+  @keyframes glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba(255, 50, 50, 0.2);
+    }
+
+    50% {
+      box-shadow: 0 0 15px rgba(255, 50, 50, 0.5);
+    }
+  }
+}
+
+:root {
+  font-family: 'Outfit', Inter, system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #121214;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at center, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Custom scrollbar for piano container */
+.piano-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.piano-scroll::-webkit-scrollbar-track {
+  background: #1a1a1f;
+}
+
+.piano-scroll::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.piano-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
